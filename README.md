@@ -4,7 +4,7 @@
 
 ---
 
-<p float="left">
+<p align="middle">
   <img src="images\loginpage.png" width="170" />
   <img src="images\registerpage.png" width="170" /> 
   <img src="images\dashboard.png" width="170" />
