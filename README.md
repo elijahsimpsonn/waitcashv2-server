@@ -25,6 +25,11 @@ and under construction.</p>
 **Cors** (prevents CORS errors with simple requests)  
 **Helmet** (protects sensitive header information)  
 **Dotenv** (imports from the .env file to process.env object for access)
+**Bcrypt** (password-hashing functions package)
+**JSONWebToken** (library for token signing/verification)
+**Knex** (sql query builder package)
+**PG** (PostgreSQL client for node.js)
+**Postgrator CLI** (cmd line SQL database migration tool)
 
 ### For Development:
 
