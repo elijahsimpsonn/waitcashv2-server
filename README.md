@@ -9,6 +9,7 @@
   <img src="images\registerpage.png" width="170" /> 
   <img src="images\dashboard.png" width="170" />
   <img src="images\shiftpage.png" width="170" />
+  <img src="images\shifttips.png" width="170" />
 </p>
 
 ---
