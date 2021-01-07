@@ -47,7 +47,7 @@ and under construction.</p>
 * As a Returning User, I can login to my account using a username and password. 
 * As a New User, I can create an account with a username, password, and email address.
 
-### Dashbaord:
+### Dashboard:
 * As a Logged In User, I can:
     * See the current date at the top of the Dashboard.
     * Start a New Shift by pressing the 'Start Shift' Button.
