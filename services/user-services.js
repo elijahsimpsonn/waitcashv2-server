@@ -1,4 +1,5 @@
 const bcyrpt = require("bcryptjs");
+const xss = require('xss');
 // eslint-disable-next-line no-useless-escape
 const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/;
 
@@ -34,26 +35,39 @@ const UserService = {
     return db('users').insert(user).returning('*').then(([user]) => user);  
   },
 
+  serializeUser(user) {
+    return {
+      user_id: user.user_id,
+      user_name: xss(user.user_name),
+      user_date_created: user.user_date_created,
+    };
+  },
+
   // ----- Main User Services ------//
 
   getAllEarnings(db, user_id) {
-      
+    return db('tips').select("*").where({user_id});
   },
 
-  insertEarning() {
-
+  createNewEarning(db, newEarning) {
+    return db('tips').insert(newEarning).returning('*').then(([res]) => res);
   },
 
-  editEarning() {
-
+  editEarning(db, tip_id, newEarning) {
+    return db('tips').where({tip_id}).update(newEarning, ['*']);
   },
 
-  deleteEarning() {
-
+  deleteEarning(db, tip_id) {
+    return db('tips').delete().where({tip_id});
   },
 
-  createShift() {
+  createNewShift(db, newShift) {
+    return db('shifts').insert(newShift).returning('*').then(([res]) => res);
+  },
 
+  // My thoughts here are just edit the current shift and change the end_date to right now
+  endCurrentShift(db, shift_id, newShift) {
+    return db('shifts').where({shift_id}).update(newShift, ['*']);
   }
 
 };
