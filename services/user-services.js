@@ -46,7 +46,7 @@ const UserService = {
   // ----- Main User Services ------//
 
   getAllEarnings(db, user_id) {
-    return db('tips').select("*").where({user_id});
+    return db('tips').select("*").where(user_id);
   },
 
   createNewEarning(db, newEarning) {
@@ -60,16 +60,6 @@ const UserService = {
   deleteEarning(db, tip_id) {
     return db('tips').delete().where({tip_id});
   },
-
-  createNewShift(db, newShift) {
-    return db('shifts').insert(newShift).returning('*').then(([res]) => res);
-  },
-
-  // My thoughts here are just edit the current shift and change the end_date to right now
-  endCurrentShift(db, shift_id, newShift) {
-    return db('shifts').where({shift_id}).update(newShift, ['*']);
-  }
-
 };
 
 module.exports = UserService;

@@ -7,7 +7,7 @@ const { requireAuth } = require("../middleware/jwt-auth");
 
 const UserRoute = express.Router();
 
-UserRoute.route("/").post(express.json(), (req, res, next) => {
+UserRoute.route('/').post(express.json(), (req, res, next) => {
   const { user_name, user_password } = req.body;
 
   // Looking for missing fields
@@ -49,8 +49,30 @@ UserRoute.route("/").post(express.json(), (req, res, next) => {
     .catch(next);
 });
 
-// api/user/dashboard
+UserRoute.route('/tips')
+  .get(requireAuth, (req, res, next) => {
+    UserService.getAllEarnings(req.app.get('db'), {user_id: req.user.user_id})
+      .then((earnings) => {
+        return res.json(earnings);
+      })
+      .catch(next);
+  })
+  .post(requireAuth, (req, res, next) => {
+    const { tip_total } = req.body;
+    const user_id = req.user.user_id;
+    const newTip = { tip_total, user_id };
+    UserService.createNewEarning(req.app.get('db'), newTip)
+      .then((tip) => {
+        res.status(200).json(tip);
+      })
+      .catch(next);
+  })
+  .patch(requireAuth, (req, res, next) => {
 
-// api/user/tips
+  })
+  .delete(requireAuth, (req, res, next) => {
 
-// api/user/shift
+  });
+
+module.exports = UserRoute;
+
