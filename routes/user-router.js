@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const xss = require("xss");
+const jsonParser = express.json();
 
 const UserService = require("../services/user-services");
 const { requireAuth } = require("../middleware/jwt-auth");
@@ -57,10 +58,11 @@ UserRoute.route('/tips')
       })
       .catch(next);
   })
-  .post(requireAuth, (req, res, next) => {
+  .post(jsonParser, requireAuth, (req, res, next) => {
     const { tip_total } = req.body;
     const user_id = req.user.user_id;
     const newTip = { tip_total, user_id };
+    console.log(newTip);
     UserService.createNewEarning(req.app.get('db'), newTip)
       .then((tip) => {
         res.status(200).json(tip);

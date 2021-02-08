@@ -18,11 +18,11 @@ VALUES
         'thisismypass123!'
     );
 
-INSERT INTO "tips" ("tip_id", "tip_total", "user_id")
+INSERT INTO "tips" ("tip_total", "user_id")
 VALUES
-    (1, 3.20, 1),
-    (2, 4.89, 1),
-    (3, 1.56, 1),
-    (4, 2.00, 2);
+    (3.20, 1),
+    (4.89, 1),
+    (1.56, 1),
+    (2.00, 2);
 
 COMMIT;
