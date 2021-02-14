@@ -6,10 +6,7 @@ TRUNCATE
 
 INSERT INTO "users" ("user_name", "user_password")
 VALUES
-    (
-        'admin',
-        'testtest123!'
-    );
+    ( 'admin', '$2y$12$Amv7KoHFNLw.yBgznb/8H.XV2sr7tHqkBV7zydrIlnzKYIQuu2xeG' );
 
 
 INSERT INTO "tips" (tip_total, tip_date, user_id)

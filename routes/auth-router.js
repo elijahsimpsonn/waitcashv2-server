@@ -14,25 +14,15 @@ AuthRoute.route("/login").post(express.json(), (req, res, next) => {
 
   //compare login inputs against/with user credentials in database
   //send JSON web token if login inputs pass validation tests
-  //otherwise, send 401 and error message   
-  console.log(req.app.get("db")); 
+  //otherwise, send 401 and error message
   return AuthService.getUser(req.app.get("db"), user_name)
     .then((user) => {
-    //   console.log(user.user_password);
-    //   console.log(loginInputs.user_password);
-    //   console.log(user.user_name);
-    //   console.log(loginInputs.user_name)
-      if (!user)
-        return res.status(401).json({ error: `Invalid username or password` });
-
-       
+      if (!user) return res.status(401).json({ error: `Invalid Username` });
       return bcrypt
         .compare(loginInputs.user_password, user.user_password)
         .then((match) => {
-        //   if (!match)
-        //     return res
-        //       .status(401)
-        //       .json({ error: `Invalid username or password` }); //this block is giving me issues, check console.logs above
+          if (!match)
+            return res.status(401).json({ error: `Invalid Password` });
 
           const token = AuthService.createJWT(user);
 
