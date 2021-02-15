@@ -6,7 +6,6 @@ const AuthRoute = express.Router();
 AuthRoute.route("/login").post(express.json(), (req, res, next) => {
   const { user_name, user_password } = req.body;
   const loginInputs = { user_name, user_password };
-  //   console.log(loginInputs);
 
   //check for missing login inputs
   for (const [key, value] of Object.entries(loginInputs))
@@ -18,13 +17,12 @@ AuthRoute.route("/login").post(express.json(), (req, res, next) => {
   //otherwise, send 401 and error message
   return AuthService.getUser(req.app.get("db"), user_name)
     .then((user) => {
-      if (!user) return res.status(400).json({ error: `Invalid Username` });
-      //   console.log("Bad Username");
+      if (!user) return res.status(401).json({ error: `Invalid Username` });
       return bcrypt
         .compare(loginInputs.user_password, user.user_password)
         .then((match) => {
           if (!match)
-            return res.status(400).json({ error: `Invalid Password` });
+            return res.status(401).json({ error: `Invalid Password` });
 
           const token = AuthService.createJWT(user);
 
