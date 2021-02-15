@@ -5,7 +5,7 @@
 ---
 
 <p align="middle">
-  <img src="images\waitcash.gif" width="20%"/>
+  <img src="images\waitcash.gif" width="40%"/>
 </p>
 
 ---
@@ -19,6 +19,8 @@
 WaitCash is an application for anyone who works in a position that earns them tips. Users of the application can create an account and enter tips which will be saved into their account. They can then see multiple breakdowns of their earnings in different formats. The GIF above shows th application in action, and I have provided a demo account for anyone who might want to see how the app works without creating an account. 
 
 Below you will find information about the application, including the packages used, the server routes in place, and a change-log that outlines future editions I plan on adding. If you would like to see more of my projects, feel free to browse my GitHub profile, or check out my portfolio <a href="http://www.elijahsimpson.com/">here</a>. 
+
+---
 ### Included Packages:
 
 #### For App:
