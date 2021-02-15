@@ -20,10 +20,6 @@ app.use(cors());
 app.use("/api/auth", AuthRoute);
 app.use("/api/user", UserRoute);
 
-// app.get("/", (req, res) => {
-//   res.status(200).send("Hello, boilerplate!");
-// });
-
 app.use(function errorHandler(error, req, res) {
   let response;
   if (NODE_ENV === "production") {
