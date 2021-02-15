@@ -1,6 +1,6 @@
 <h1 align="middle">WaitCash</h3>
 
-<h2 align="middle">A Web Application for keeping track of wages during server shifts.</h3?>
+<h2 align="middle">A Web Application for keeping track of wages during server shifts.</h2>
 
 ---
 
@@ -10,13 +10,20 @@
 
 ---
 
-<p>This is the Server for WaitCash. The Client can be found <a href="https://github.com/elijahsimpsonn/Waitcash-Client">here.</a></p>
+<h2 align="middle">This is the Server for WaitCash. The Client can be found <a href="https://github.com/elijahsimpsonn/Waitcash-Client">here.</a></h2>
+<p align="middle">
+    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
+    <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB">
+    <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
+    <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
+    <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white">
+</p>
 
 ---
 
 ### About:
 
-WaitCash is an application for anyone who works in a position that earns them tips. Users of the application can create an account and enter tips which will be saved into their account. They can then see multiple breakdowns of their earnings in different formats. The GIF above shows th application in action, and I have provided a demo account for anyone who might want to see how the app works without creating an account. 
+WaitCash is an application for anyone who works in a position that earns them tips. Users of the application can create an account and enter tips which will be saved into their account. They can then see multiple breakdowns of their earnings in different formats. The GIF above shows the application in action, and I have provided a demo account for anyone who might want to see how the app works without creating an account. 
 
 Below you will find information about the application, including the packages used, the server routes in place, and a change-log that outlines future editions I plan on adding. If you would like to see more of my projects, feel free to browse my GitHub profile, or check out my portfolio <a href="http://www.elijahsimpson.com/">here</a>. 
 
