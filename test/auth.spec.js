@@ -3,7 +3,6 @@ const supertest = require("supertest");
 const app = require("../src/app");
 const jwt = require("jsonwebtoken");
 
-
 describe("Auth Router Endpoints", function () {
   this.timeout(0);
   let db;
@@ -22,7 +21,6 @@ describe("Auth Router Endpoints", function () {
     return `Bearer ${token}`;
   }
 
-
   before("make knex instance", () => {
     db = knex({
       client: "pg",
@@ -35,11 +33,11 @@ describe("Auth Router Endpoints", function () {
   before("cleanup", () =>
     db.raw(`TRUNCATE users, tips RESTART IDENTITY CASCADE`)
   );
-  //   afterEach("cleanup", () =>
-  //     db.raw(`TRUNCATE users, tips RESTART IDENTITY CASCADE`)
-  //   );
+  afterEach("cleanup", () =>
+    db.raw(`TRUNCATE users, tips RESTART IDENTITY CASCADE`)
+  );
 
-  describe.only(`POST api/auth/login`, () => {
+  describe(`POST api/auth/login`, () => {
     context(`Logs in user`, () => {
       const testUser = {
         user_name: "testUser",
@@ -51,7 +49,10 @@ describe("Auth Router Endpoints", function () {
       });
 
       it(`Returns 200 Status`, () => {
-        return supertest(app).post("/api/auth/login").send(testUser).expect(200, {authToken: makeAuthHeader(testUser)});
+        return supertest(app)
+          .post("/api/auth/login")
+          .send(testUser)
+          .expect(200, { authToken: makeAuthHeader(testUser) });
       });
     });
   });
