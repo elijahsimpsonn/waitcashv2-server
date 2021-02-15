@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha --require test/setup.js",
     "watch": "npm t -- --watch",
-    "start": "nodemon src/server.js",
+    "start": "node src/server.js",
     "migrate": "postgrator --config postgrator-config.js",
     "migrate:test": "env NODE_ENV=test npm run migrate",
     "predeploy": "npm audit",
