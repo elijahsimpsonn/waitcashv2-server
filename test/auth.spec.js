@@ -35,9 +35,9 @@ describe("Auth Router Endpoints", function () {
   before("cleanup", () =>
     db.raw(`TRUNCATE users, tips RESTART IDENTITY CASCADE`)
   );
-  afterEach("cleanup", () =>
-    db.raw(`TRUNCATE users, tips RESTART IDENTITY CASCADE`)
-  );
+  //   afterEach("cleanup", () =>
+  //     db.raw(`TRUNCATE users, tips RESTART IDENTITY CASCADE`)
+  //   );
 
   describe.only(`POST api/auth/login`, () => {
     context(`Logs in user`, () => {

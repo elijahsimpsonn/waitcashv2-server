@@ -1,76 +1,62 @@
-# WaitCash(V2) Server
+<h1 align="middle">WaitCash</h3>
 
-### The server for WaitCash, a web application for keeping track of wages during server shifts.
+<h2 align="middle">A Web Application for keeping track of wages during server shifts.</h3?>
 
 ---
 
 <p align="middle">
-  <img src="images\loginpage.png" width="140" />
-  <img src="images\registerpage.png" width="140" /> 
-  <img src="images\dashboard.png" width="140" />
-  <img src="images\shiftpage.png" width="140" />
-  <img src="images\shifttips.png" width="140" />
+  <img src="images\waitcash.gif" width="20%"/>
 </p>
 
 ---
 
-<p>This is the server repo for version 2 of WaitCash. Right now it is just wireframes
-and under construction.</p>
-
----
-## Included Packages:
-
-### For App:
-
-* **Morgan** (real-time notifications of requests in the terminal)  
-* **Cors** (prevents CORS errors with simple requests)  
-* **Helmet** (protects sensitive header information)  
-* **Dotenv** (imports from the .env file to process.env object for access)
-* **Bcrypt** (password-hashing functions package)
-* **JSONWebToken** (library for token signing/verification)
-* **Knex** (sql query builder package)
-* **PG** (PostgreSQL client for node.js)
-* **Postgrator CLI** (cmd line SQL database migration tool)
-
-### For Development:
-
-* **NodeMon** (dev server that auto-refreshes when changes are made)  
-* **Mocha** (a testing structure package)  
-* **Chai** (assertion functions package)  
-* **Supertest** (package used to test HTTP calls)
+<p>This is the Server for WaitCash. The Client can be found <a href="https://github.com/elijahsimpsonn/Waitcash-Client">here.</a></p>
 
 ---
 
-## User Stories / Application Features:
+### About:
 
-### Log-In / Registration Page:
-* As a Returning User, I can login to my account using a username and password. 
-* As a New User, I can create an account with a username, password, and email address.
+WaitCash is an application for anyone who works in a position that earns them tips. Users of the application can create an account and enter tips which will be saved into their account. They can then see multiple breakdowns of their earnings in different formats. The GIF above shows th application in action, and I have provided a demo account for anyone who might want to see how the app works without creating an account. 
 
-### Dashboard:
-* As a Logged In User, I can:
-    * See the current date at the top of the Dashboard.
-    * Start a New Shift by pressing the 'Start Shift' Button.
-    * Log Out of my account by pressing the 'Log Out' Button.
-    * See my total earnings by All-Time, Year, Month, and Current Week without any needed input.
-    * Filter my Earnings Data with the use of Charts with a drop down Select menu by the following opitions:
-        * All Year Totals (Line Chart)
-        * Highest Earning Months (Pie Chart)
-        * Top Ten Highest Earning Days By Date (Column Chart)
-        * Highest Earning Days In The Week (Pie Chart) 
+Below you will find information about the application, including the packages used, the server routes in place, and a change-log that outlines future editions I plan on adding. If you would like to see more of my projects, feel free to browse my GitHub profile, or check out my portfolio <a href="http://www.elijahsimpson.com/">here</a>. 
+### Included Packages:
 
-### Current Shift Page:
-* As a Logged In User, I can:
-    * Enter a New Tip and Submit it to the current shift by pressing the 'Submit' Button.
-    * See my Current Shift Earnings, Total Tips This Shift, and the Average Tip Per Meal without any needed input.
-    * Edit one or multiple Tips by pressing the 'Edit Tips' Button.
-    * End this Current Shift by pressing the 'End Shift' Button.
+#### For App:
 
-### Current Shift Tips Page:
-* As a Logged In User, I can:
-    * See a list, in decending order, of all of the Tips I have sumbmitted this Shift, with any needed input.
-    * Delete any Tip by pressing the 'Delete' Button within the Tip list item component.
-    * Edit any Tip by pressing the 'Edit' Button withing the Tip list Item component.
-        * This will make the dollar amount of the tip change to an input, and will also change the 'Edit' Button to a 'Submit' Button.
-        * When the 'Submit' Button is pressed after a new input, the page will render with the new information.
-    * Return back to my Current Shift Page by pressing the 'Back To Current Shift' Button.  
+* **bcrypt.js** (password-hashing functions package)
+* **cors** (prevents CORS errors with simple requests)  
+* **dotenv** (imports from the .env file to process.env object for access)
+* **express** (web framework for node.js)
+* **helmet** (protects sensitive header information)  
+* **jsonwebtoken** (library for token signing/verification)
+* **knex** (sql query builder package)
+* **morgan** (real-time notifications of requests in the terminal)  
+* **pg** (PostgreSQL client for node.js)
+* **postgrator cli** (cmd line SQL database migration tool)
+
+#### For Development:
+
+* **chai** (assertion functions package)
+* **eslint** (static code analysis tool)
+* **eslint-config-prettier** (turns off all rules that are unnecessary or might conflict with prettier) 
+* **mocha** (a testing structure package)   
+* **nodemon** (dev server that auto-refreshes when changes are made)  
+* **prettier** (opinionated code formatter)
+* **supertest** (package used to test HTTP calls)
+
+---
+
+### Server Routes:
+
+#### Auth Router:
+* **("api/auth/login") POST** - Handles user login. Checks to make sure there is not a required field missing in the request body, then checks to make sure the username and password are in the database. If everything passes, it logs the user in.
+
+#### User Router:
+* **("api/user/") POST** - Handles user registration. It checks for missing fields, validates the password, checks to see if username is avalible, then hashes the password and inserts the user into the database.
+* **("api/user/tips") GET** - Makes a get request to the database for all of the tips the user has submitted. 
+* **("api/user/tips") POST** - Post a new tip to the database that is associated with the user. 
+ 
+---
+
+### ChangeLog / Future Updates:
+Coming soon!
