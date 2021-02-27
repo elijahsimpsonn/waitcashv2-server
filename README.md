@@ -69,3 +69,32 @@ Below you will find information about the application, including the packages us
 
 ### ChangeLog / Future Updates:
 Coming soon!
+
+---
+
+### Setup Documentation:
+* Create the Database and Test Database you use with the application in PostgreSQL. You can find documentaion <a href="https://www.postgresql.org/docs/9.0/sql-createdatabase.html">here</a> or use a GUI program like <a href="https://dbeaver.io/">DBBeaver</a>.
+* Clone this repo.
+* Run `npm install` to install all of the dependencies.
+* Create a `.env` file inside of the root folder with the following information:
+    ```
+    NODE_ENV='development'
+    PORT=8000
+    DATABASE_URL="yourusername://postgres@localhost/yourdbname"
+    TEST_DATABASE_URL="yourusername://postgres@localhost/yourtestdbname"
+    JWT_SECRET=secret
+    ```
+* Remove `CLIENT_ORIGIN` from the `config.js` file in the `src` folder.
+* Inside the `app.js` file in the `src` folder, replace:
+    ```
+    app.use(
+        cors({
+            origin: CLIENT_ORIGIN,
+        })
+    )
+    ```
+    with:
+    `app.use(cors())`.
+* Run the script file to populate the Database with the seed data by typing `./migrateAndSeed.sh` into your terminal.
+* Run `npm start` in your terminal, which should show that the server is now running on port `8000`.
+* Now head over to the <a href="https://github.com/elijahsimpsonn/Waitcash-Client">client repo</a> and follow the information there.
