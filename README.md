@@ -68,7 +68,7 @@ Below you will find information about the application, including the packages us
 ---
 
 ### ChangeLog / Future Updates:
-Coming soon!
+Coming soon!!
 
 ---
 
